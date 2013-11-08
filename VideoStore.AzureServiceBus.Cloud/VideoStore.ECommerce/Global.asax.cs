@@ -27,7 +27,7 @@ namespace VideoStore.ECommerce
 
             startableBus = Configure.With()
                 .DefaultBuilder()
-                .AzureDiagnosticsLogger()
+                .TraceLogger()
                 .UseTransport<AzureServiceBus>()
                 .PurgeOnStartup(true)
                 .UnicastBus()

@@ -1,11 +1,10 @@
 using System.Diagnostics;
+using NServiceBus.Azure.Transports.WindowsAzureServiceBus;
 using NServiceBus.Config;
 using NServiceBus.Features;
-using NServiceBus.Unicast.Queuing.Azure.ServiceBus;
 
 namespace VideoStore.ContentManagement
 {
-    using System;
     using NServiceBus;
 
     public class EndpointConfig : IConfigureThisEndpoint, AsA_Worker, UsingTransport<AzureServiceBus> { }
