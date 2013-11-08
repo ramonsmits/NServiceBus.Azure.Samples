@@ -1,6 +1,5 @@
-﻿using NServiceBus.Config;
-using NServiceBus.Unicast.Queuing.Azure.ServiceBus;
-
+﻿using NServiceBus.Azure.Transports.WindowsAzureServiceBus;
+using NServiceBus.Config;
 namespace VideoStore.CustomerRelations
 {
     using System;
