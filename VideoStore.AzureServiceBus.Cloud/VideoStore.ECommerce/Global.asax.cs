@@ -1,6 +1,4 @@
-using NServiceBus.Config;
 using NServiceBus.Features;
-using NServiceBus.Unicast.Queuing.Azure.ServiceBus;
 
 namespace VideoStore.ECommerce
 {
@@ -29,7 +27,7 @@ namespace VideoStore.ECommerce
 
             startableBus = Configure.With()
                 .DefaultBuilder()
-                .AzureDiagnosticsLogger()
+                .TraceLogger()
                 .UseTransport<AzureServiceBus>()
                 .PurgeOnStartup(true)
                 .UnicastBus()
@@ -50,19 +48,6 @@ namespace VideoStore.ECommerce
         protected void Application_End()
         {
             startableBus.Dispose();
-        }
-    }
-
-    /// <summary>
-    /// This is just here so that topics are created irrespective of boot order of the processes
-    /// </summary>
-    public class AutoCreateDependantTopics : IWantToRunWhenConfigurationIsComplete
-    {
-        public void Run()
-        {
-            var topicCreator = new AzureServicebusTopicCreator();
-
-            topicCreator.Create(Address.Parse("VideoStore.ContentManagement"));
         }
     }
 }

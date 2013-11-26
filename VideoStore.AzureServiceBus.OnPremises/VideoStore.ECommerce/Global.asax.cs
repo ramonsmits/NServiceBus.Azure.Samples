@@ -1,6 +1,6 @@
+using NServiceBus.Azure.Transports.WindowsAzureServiceBus;
 using NServiceBus.Config;
 using NServiceBus.Hosting.Helpers;
-using NServiceBus.Unicast.Queuing.Azure.ServiceBus;
 
 namespace VideoStore.ECommerce
 {
@@ -61,6 +61,7 @@ namespace VideoStore.ECommerce
         {
             var topicCreator = new AzureServicebusTopicCreator();
 
+            topicCreator.Create(Address.Parse("VideoStore.Sales"));
             topicCreator.Create(Address.Parse("VideoStore.ContentManagement"));
         }
     }

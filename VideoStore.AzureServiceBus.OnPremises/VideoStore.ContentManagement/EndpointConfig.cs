@@ -1,5 +1,5 @@
+using NServiceBus.Azure.Transports.WindowsAzureServiceBus;
 using NServiceBus.Config;
-using NServiceBus.Unicast.Queuing.Azure.ServiceBus;
 
 namespace VideoStore.ContentManagement
 {

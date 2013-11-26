@@ -1,11 +1,10 @@
 ﻿using System.Diagnostics;
+using NServiceBus.Azure.Transports.WindowsAzureServiceBus;
 using NServiceBus.Config;
 using NServiceBus.Features;
-using NServiceBus.Unicast.Queuing.Azure.ServiceBus;
 
 namespace VideoStore.CustomerRelations
 {
-    using System;
     using NServiceBus;
 
     public class EndpointConfig : IConfigureThisEndpoint, AsA_Worker, UsingTransport<AzureServiceBus> { }
@@ -42,6 +41,7 @@ namespace VideoStore.CustomerRelations
         public void Init()
         {
             Feature.Disable<TimeoutManager>();
+            Feature.Disable<SecondLevelRetries>();
         }
     }
 }

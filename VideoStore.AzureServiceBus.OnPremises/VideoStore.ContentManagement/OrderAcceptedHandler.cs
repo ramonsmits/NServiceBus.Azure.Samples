@@ -21,7 +21,7 @@
             }
 
             Console.WriteLine("Order # {0} has been accepted, Let's provision the download -- Sending ProvisionDownloadRequest to the VideoStore.Operations endpoint", message.OrderNumber);
-            
+
             //send out a request (a event will be published when the response comes back)
             Bus.Send<ProvisionDownloadRequest>(r =>
             {

@@ -1,11 +1,8 @@
 using System.Diagnostics;
-using NServiceBus.Config;
 using NServiceBus.Features;
-using NServiceBus.Unicast.Queuing.Azure.ServiceBus;
 
 namespace VideoStore.ContentManagement
 {
-    using System;
     using NServiceBus;
 
     public class EndpointConfig : IConfigureThisEndpoint, AsA_Worker, UsingTransport<AzureStorageQueue> { }
@@ -24,10 +21,11 @@ namespace VideoStore.ContentManagement
     }
 
     // We don't need it, so instead of configuring it, we disable it
-    public class DisableTimeoutManager : INeedInitialization
+    public class DisableFeatures : INeedInitialization
     {
         public void Init()
         {
+            Feature.Disable<SecondLevelRetries>();
             Feature.Disable<TimeoutManager>();
         }
     }
