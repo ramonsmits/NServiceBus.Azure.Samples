@@ -29,6 +29,7 @@ namespace VideoStore.Operations
         public void Init()
         {
             Feature.Disable<TimeoutManager>();
+            Feature.Disable<SecondLevelRetries>();
         }
     }
 }

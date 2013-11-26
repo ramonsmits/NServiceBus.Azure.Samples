@@ -1,3 +1,5 @@
+using NServiceBus.Azure.Transports.WindowsAzureServiceBus;
+using NServiceBus.Config;
 using NServiceBus.Hosting.Helpers;
 
 namespace VideoStore.ECommerce
@@ -47,6 +49,20 @@ namespace VideoStore.ECommerce
         protected void Application_End()
         {
             startableBus.Dispose();
+        }
+    }
+
+    /// <summary>
+    /// This is just here so that topics are created irrespective of boot order of the processes
+    /// </summary>
+    public class AutoCreateDependantTopics : IWantToRunWhenConfigurationIsComplete
+    {
+        public void Run()
+        {
+            var topicCreator = new AzureServicebusTopicCreator();
+
+            topicCreator.Create(Address.Parse("VideoStore.Sales"));
+            topicCreator.Create(Address.Parse("VideoStore.ContentManagement"));
         }
     }
 }
