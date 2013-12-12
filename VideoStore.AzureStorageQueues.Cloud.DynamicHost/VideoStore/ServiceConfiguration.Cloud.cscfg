@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="VideoStore" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2013-10.2.2">
+  <Role name="VideoStore.ECommerce">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+    </ConfigurationSettings>
+  </Role>
+  <Role name="VideoStore.Host">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+
+      <Setting name="DynamicHostControllerConfig.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="DynamicHostControllerConfig.AutoUpdate" value="true" />
+      <Setting name="DynamicHostControllerConfig.UpdateInterval" value="5000" />
+      <Setting name="DynamicHostControllerConfig.Container" value="endpoints" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>
