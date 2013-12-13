@@ -11,7 +11,7 @@ namespace VideoStore.CustomerRelations
     {
         public void Init()
         {
-            //SetLoggingLibrary.Log4Net(log4net.Config.XmlConfigurator.Configure);
+            SetLoggingLibrary.Log4Net(log4net.Config.XmlConfigurator.Configure);
         }
     }
 
