@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using NServiceBus.Features;
+﻿using NServiceBus.Features;
 using NServiceBus.Logging;
 
 namespace VideoStore.CustomerRelations
