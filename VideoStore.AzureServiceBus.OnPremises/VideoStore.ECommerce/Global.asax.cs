@@ -61,8 +61,8 @@ namespace VideoStore.ECommerce
         {
             var topicCreator = new AzureServicebusTopicCreator();
 
-            topicCreator.Create(Address.Parse("VideoStore.Sales"));
-            topicCreator.Create(Address.Parse("VideoStore.ContentManagement"));
+            topicCreator.Create(Address.Parse("VideoStore.Sales.Events"));
+            topicCreator.Create(Address.Parse("VideoStore.ContentManagement.Events"));
         }
     }
 }

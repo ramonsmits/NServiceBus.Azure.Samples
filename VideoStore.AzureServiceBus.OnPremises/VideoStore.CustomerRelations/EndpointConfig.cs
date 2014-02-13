@@ -29,7 +29,7 @@ namespace VideoStore.CustomerRelations
         {
             var topicCreator = new AzureServicebusTopicCreator();
 
-            topicCreator.Create(Address.Parse("VideoStore.Sales"));
+            topicCreator.Create(Address.Parse("VideoStore.Sales.Events"));
         }
     }
 }
