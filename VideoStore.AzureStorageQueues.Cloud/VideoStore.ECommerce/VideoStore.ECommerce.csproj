@@ -224,19 +224,13 @@
     </Content>
     <Content Include="Content\js\html5.js">
     </Content>
-    <Content Include="Content\js\jquery-1.8.3.min.js">
-    </Content>
     <Content Include="Content\js\video.js">
     </Content>
     <Content Include="Global.asax">
     </Content>
-    <Content Include="Content\js\jquery.signalR-1.0.0.js" />
-    <Content Include="Content\js\jquery.signalR-1.0.0.min.js" />
-    <None Include="Scripts\jquery-2.1.0.intellisense.js" />
-    <Content Include="Scripts\jquery-2.1.0.js" />
-    <Content Include="Scripts\jquery-2.1.0.min.js" />
-    <Content Include="Scripts\jquery.signalR-2.0.2.js" />
-    <Content Include="Scripts\jquery.signalR-2.0.2.min.js" />
+    <Content Include="Content\js\jquery-2.1.0.min.js" />
+    <Content Include="Content\js\jquery.signalR-2.0.2.js" />
+    <Content Include="Content\js\jquery.signalR-2.0.2.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -248,7 +242,6 @@
     </Content>
     <Content Include="Views\Web.config">
     </Content>
-    <Content Include="Scripts\jquery-2.1.0.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\_ViewStart.cshtml">
@@ -272,6 +265,9 @@
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml">
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

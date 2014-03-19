@@ -3,7 +3,6 @@ using Owin;
 using VideoStore.ECommerce;
 
 [assembly: OwinStartup(typeof(Startup))]
-
 namespace VideoStore.ECommerce
 {
 	public class Startup
