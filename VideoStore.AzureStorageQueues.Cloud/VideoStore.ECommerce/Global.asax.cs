@@ -1,51 +1,50 @@
-using System.Threading;
-using NServiceBus.Features;
 
 namespace VideoStore.ECommerce
 {
-    using System.Web;
-    using System.Web.Mvc;
-    using System.Web.Routing;
-    using NServiceBus;
-    using NServiceBus.Installation.Environments;
+	using NServiceBus;
+	using NServiceBus.Installation.Environments;
+	using NServiceBus.Features;
+	using System.Web;
+	using System.Web.Mvc;
+	using System.Web.Routing;
 
-    public class MvcApplication : HttpApplication
-    {
-        private static IBus bus;
+	public class MvcApplication : HttpApplication
+	{
+		private static IBus _bus;
 
-        private IStartableBus startableBus;
+		private IStartableBus _startableBus;
 
-        public static IBus Bus
-        {
-            get { return bus; }
-        }
+		public static IBus Bus
+		{
+			get { return _bus; }
+		}
 
-        protected void Application_Start()
-        {
-            Feature.Disable<TimeoutManager>();
+		protected void Application_Start()
+		{
+			Feature.Disable<TimeoutManager>();
 
-            startableBus = Configure.With()
-                .DefaultBuilder()
-                .TraceLogger()
-                .UseTransport<AzureStorageQueue>()
-                .PurgeOnStartup(true)
-                .UnicastBus()
-                .RunHandlersUnderIncomingPrincipal(false)
-                .RijndaelEncryptionService()
-                .CreateBus();
+			_startableBus = Configure.With()
+				.DefaultBuilder()
+				.TraceLogger()
+				.UseTransport<AzureStorageQueue>()
+				.PurgeOnStartup(true)
+				.UnicastBus()
+				.RunHandlersUnderIncomingPrincipal(false)
+				.RijndaelEncryptionService()
+				.CreateBus();
 
-            Configure.Instance.ForInstallationOn<Windows>().Install();
+			Configure.Instance.ForInstallationOn<Windows>().Install();
 
-            bus = startableBus.Start();
+			_bus = _startableBus.Start();
 
-            AreaRegistration.RegisterAllAreas();
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-        }
+			AreaRegistration.RegisterAllAreas();
+			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+			RouteConfig.RegisterRoutes(RouteTable.Routes);
+		}
 
-        protected void Application_End()
-        {
-            startableBus.Dispose();
-        }
-    }
+		protected void Application_End()
+		{
+			_startableBus.Dispose();
+		}
+	}
 }
