@@ -30,7 +30,7 @@ namespace VideoStore.ContentManagement
         {
             var topicCreator = new AzureServicebusTopicCreator();
 
-            topicCreator.Create(Address.Parse("VideoStore.Sales.Events"));
+            topicCreator.Create(AzureServiceBusPublisherAddressConventionForSubscriptions.Apply(Address.Parse("VideoStore.Sales")));
         }
     }
 }
