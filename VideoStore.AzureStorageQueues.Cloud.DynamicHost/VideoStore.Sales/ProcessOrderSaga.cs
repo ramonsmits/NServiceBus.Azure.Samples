@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using NServiceBus.Logging;
+﻿using NServiceBus.Logging;
 
 namespace VideoStore.Sales
 {

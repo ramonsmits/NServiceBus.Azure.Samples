@@ -2,11 +2,10 @@
 
 namespace VideoStore.ContentManagement
 {
-    using System;
     using System.Diagnostics;
-    using VideoStore.Common;
-    using VideoStore.Messages.RequestResponse;
-    using VideoStore.Messages.Events;
+    using Common;
+    using Messages.RequestResponse;
+    using Messages.Events;
     using NServiceBus;
 
     public class OrderAcceptedHandler : IHandleMessages<OrderAccepted>

@@ -1,16 +1,14 @@
-using System.Diagnostics;
 using NServiceBus.Logging;
 
 namespace VideoStore.Sales
 {
-    using System;
     using NServiceBus;
 
     public class EndpointConfig : IConfigureThisEndpoint, AsA_Worker, UsingTransport<AzureStorageQueue>, IWantCustomInitialization
     {
         public void Init()
         {
-            SetLoggingLibrary.Log4Net(() => log4net.Config.XmlConfigurator.Configure());
+            SetLoggingLibrary.Log4Net(log4net.Config.XmlConfigurator.Configure);
 
             Configure.With()
                 .DefaultBuilder()

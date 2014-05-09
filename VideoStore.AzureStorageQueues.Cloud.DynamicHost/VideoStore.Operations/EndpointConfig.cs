@@ -1,10 +1,8 @@
-using System.Diagnostics;
 using NServiceBus.Features;
 using NServiceBus.Logging;
 
 namespace VideoStore.Operations
 {
-    using System;
     using NServiceBus;
 
     public class EndpointConfig : IConfigureThisEndpoint, AsA_Worker, UsingTransport<AzureStorageQueue>
@@ -13,7 +11,7 @@ namespace VideoStore.Operations
     {
         public void Init()
         {
-            SetLoggingLibrary.Log4Net(() => log4net.Config.XmlConfigurator.Configure());
+            SetLoggingLibrary.Log4Net(log4net.Config.XmlConfigurator.Configure);
         }
     }
 

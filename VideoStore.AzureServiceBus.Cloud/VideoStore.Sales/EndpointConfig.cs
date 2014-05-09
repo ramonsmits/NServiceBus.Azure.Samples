@@ -1,9 +1,7 @@
 using System.Diagnostics;
-using NServiceBus.Features;
 
 namespace VideoStore.Sales
 {
-    using System;
     using NServiceBus;
 
     public class EndpointConfig : IConfigureThisEndpoint, AsA_Worker, UsingTransport<AzureServiceBus>, IWantCustomInitialization

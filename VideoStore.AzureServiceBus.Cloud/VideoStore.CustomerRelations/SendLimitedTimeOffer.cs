@@ -1,10 +1,9 @@
 ﻿namespace VideoStore.CustomerRelations
 {
-    using System;
     using System.Diagnostics;
     using Messages.Events;
     using NServiceBus;
-    using VideoStore.Common;
+    using Common;
 
     class SendLimitedTimeOffer : IHandleMessages<ClientBecamePreferred>
     {

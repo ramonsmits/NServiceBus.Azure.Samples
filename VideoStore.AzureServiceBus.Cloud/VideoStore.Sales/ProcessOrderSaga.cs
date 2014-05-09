@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace VideoStore.Sales
+﻿namespace VideoStore.Sales
 {
     using System;
     using System.Diagnostics;

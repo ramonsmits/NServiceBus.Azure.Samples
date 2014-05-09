@@ -1,4 +1,3 @@
-using System;
 using Microsoft.WindowsAzure.ServiceRuntime;
 using NServiceBus.Hosting.Azure;
 

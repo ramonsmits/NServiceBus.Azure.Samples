@@ -4,9 +4,9 @@ namespace VideoStore.Sales
 {
     using System;
     using System.Diagnostics;
-    using VideoStore.Common;
-    using VideoStore.Messages.Commands;
-    using VideoStore.Messages.Events;
+    using Common;
+    using Messages.Commands;
+    using Messages.Events;
     using NServiceBus;
 
     public class SubmitOrderHandler : IHandleMessages<SubmitOrder>

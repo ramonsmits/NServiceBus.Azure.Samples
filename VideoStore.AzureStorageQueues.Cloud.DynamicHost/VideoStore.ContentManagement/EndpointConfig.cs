@@ -1,7 +1,5 @@
-using System.Diagnostics;
 using NServiceBus.Features;
 using NServiceBus.Logging;
-using NServiceBus.Unicast;
 
 namespace VideoStore.ContentManagement
 {
@@ -12,7 +10,7 @@ namespace VideoStore.ContentManagement
     {
         public void Init()
         {
-            SetLoggingLibrary.Log4Net(() => log4net.Config.XmlConfigurator.Configure());
+            SetLoggingLibrary.Log4Net(log4net.Config.XmlConfigurator.Configure);
         }
     }
 

@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNet.SignalR;
-
-namespace VideoStore.ECommerce
+﻿namespace VideoStore.ECommerce
 {
     using System;
     using System.Web.Mvc;

@@ -1,12 +1,11 @@
 ﻿namespace VideoStore.ContentManagement
 {
-    using System;
     using System.Collections.Generic;
     using System.Diagnostics;
     using Messages.Events;
     using Messages.RequestResponse;
     using NServiceBus;
-    using VideoStore.Common;
+    using Common;
 
     public class ProvisionDownloadResponseHandler : IHandleMessages<ProvisionDownloadResponse>
     {

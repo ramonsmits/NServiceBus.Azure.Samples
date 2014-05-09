@@ -3,7 +3,6 @@ using NServiceBus.Features;
 
 namespace VideoStore.Operations
 {
-    using System;
     using NServiceBus;
 
 	public class EndpointConfig : IConfigureThisEndpoint, AsA_Worker, UsingTransport<AzureServiceBus>

@@ -1,4 +1,3 @@
-using System.Threading;
 using NServiceBus.Features;
 
 namespace VideoStore.ECommerce

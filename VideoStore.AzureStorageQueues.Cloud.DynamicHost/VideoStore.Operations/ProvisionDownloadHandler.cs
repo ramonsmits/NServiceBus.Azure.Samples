@@ -4,8 +4,8 @@ namespace VideoStore.Operations
 {
     using System;
     using System.Diagnostics;
-    using VideoStore.Common;
-    using VideoStore.Messages.RequestResponse;
+    using Common;
+    using Messages.RequestResponse;
     using NServiceBus;
 
     public class ProvisionDownloadHandler : IHandleMessages<ProvisionDownloadRequest>
