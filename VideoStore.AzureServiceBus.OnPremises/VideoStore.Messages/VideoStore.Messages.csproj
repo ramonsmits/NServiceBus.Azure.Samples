@@ -53,18 +53,9 @@
     <Compile Include="Events\DownloadIsReady.cs">
     </Compile>
     <Compile Include="Events\OrderPlaced.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-    </Compile>
     <Compile Include="RequestResponse\ProvisionDownloadRequest.cs" />
     <Compile Include="RequestResponse\ProvisionDownloadResponse.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets">
   </Import>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

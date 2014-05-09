@@ -1,6 +1,5 @@
 using NServiceBus.Azure.Transports.WindowsAzureServiceBus;
 using NServiceBus.Config;
-using NServiceBus.Hosting.Helpers;
 
 namespace VideoStore.ECommerce
 {
