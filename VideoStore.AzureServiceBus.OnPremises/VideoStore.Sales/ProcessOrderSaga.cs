@@ -56,21 +56,19 @@
 
             MarkAsComplete();
 
-            Bus.Publish(Bus.CreateInstance<OrderCancelled>(o =>
+            Bus.Publish(new OrderCancelled
                 {
-                    o.OrderNumber = message.OrderNumber;
-                    o.ClientId = message.ClientId;
-                }));
+                    OrderNumber = message.OrderNumber,
+                    ClientId = message.ClientId
+                });
 
             Console.Out.WriteLine("Order #{0} was cancelled.", message.OrderNumber);
         }
 
-        public override void ConfigureHowToFindSaga()
+        protected override void ConfigureHowToFindSaga(SagaPropertyMapper<OrderData> mapper)
         {
-            ConfigureMapping<SubmitOrder>(m => m.OrderNumber)
-                .ToSaga(s=>s.OrderNumber);
-            ConfigureMapping<CancelOrder>(m => m.OrderNumber)
-                .ToSaga(s=>s.OrderNumber);
+            mapper.ConfigureMapping<SubmitOrder>(m => m.OrderNumber).ToSaga(s => s.OrderNumber);
+            mapper.ConfigureMapping<CancelOrder>(m => m.OrderNumber).ToSaga(s => s.OrderNumber);
         }
 
         public class OrderData : ContainSagaData
@@ -84,6 +82,8 @@
         public class BuyersRemorseIsOver
         {
         }
+
+       
     }
 
     

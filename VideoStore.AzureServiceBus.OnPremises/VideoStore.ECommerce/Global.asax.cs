@@ -25,21 +25,39 @@ namespace VideoStore.ECommerce
 
         protected void Application_Start()
         {
-            Configure.ScaleOut(s => s.UseSingleBrokerQueue());
-
-            startableBus = Configure.With()
-                .DefaultBuilder()
-                .Log4Net(new DebugAppender {Threshold = Level.Warn})
+            startableBus = Configure.With(o =>
+            {
+                //o.EndpointName(endpointName);
+                // o.EndpointVersion(() => endpointVersionToUse);
+            
+                o.Conventions(c =>
+                    c.DefiningCommandsAs(
+                        t =>
+                            t.Namespace != null && t.Namespace.StartsWith("VideoStore") &&
+                            t.Namespace.EndsWith("Commands"))
+                        .DefiningEventsAs(
+                            t =>
+                                t.Namespace != null && t.Namespace.StartsWith("VideoStore") &&
+                                t.Namespace.EndsWith("Events"))
+                        .DefiningMessagesAs(
+                            t =>
+                                t.Namespace != null && t.Namespace.StartsWith("VideoStore") &&
+                                t.Namespace.EndsWith("RequestResponse"))
+                        .DefiningEncryptedPropertiesAs(p => p.Name.StartsWith("Encrypted")));
+            })
                 .UseTransport<AzureServiceBus>()
                 .PurgeOnStartup(true)
-                .UnicastBus()
-                .RunHandlersUnderIncomingPrincipal(false)
+                .ScaleOut(s => s.UseSingleBrokerQueue())
                 .RijndaelEncryptionService()
+                .EnableInstallers()
                 .CreateBus();
+                
 
-            Configure.Instance.ForInstallationOn<Windows>().Install();
+            //Configure.Instance.ForInstallationOn<Windows>().Install();
 
-            bus = startableBus.Start();
+            bus = startableBus
+              //  .RunInstallers()
+                .Start();
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
@@ -52,17 +70,17 @@ namespace VideoStore.ECommerce
         }
     }
 
-    /// <summary>
-    /// This is just here so that topics are created irrespective of boot order of the processes
-    /// </summary>
-    public class AutoCreateDependantTopics : IWantToRunWhenConfigurationIsComplete
-    {
-        public void Run()
-        {
-            var topicCreator = new AzureServicebusTopicCreator();
+    ///// <summary>
+    ///// This is just here so that topics are created irrespective of boot order of the processes
+    ///// </summary>
+    //public class AutoCreateDependantTopics : IWantToRunWhenConfigurationIsComplete
+    //{
+    //    public void Run()
+    //    {
+    //        var topicCreator = new AzureServicebusTopicCreator();
 
-            topicCreator.Create(AzureServiceBusPublisherAddressConventionForSubscriptions.Apply(Address.Parse("VideoStore.Sales")));
-            topicCreator.Create(AzureServiceBusPublisherAddressConventionForSubscriptions.Apply(Address.Parse("VideoStore.ContentManagement")));
-        }
-    }
+    //        topicCreator.Create(AzureServiceBusPublisherAddressConventionForSubscriptions.Apply(Address.Parse("VideoStore.Sales")));
+    //        topicCreator.Create(AzureServiceBusPublisherAddressConventionForSubscriptions.Apply(Address.Parse("VideoStore.ContentManagement")));
+    //    }
+    //}
 }

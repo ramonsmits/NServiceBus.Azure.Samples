@@ -1,9 +1,9 @@
 ﻿namespace VideoStore.Messages.Events
 {
-    public interface OrderPlaced
+    public class OrderPlaced
     {
-        int OrderNumber { get; set; }
-        string[] VideoIds { get; set; }
-        string ClientId { get; set; }
+        public int OrderNumber { get; set; }
+        public string[] VideoIds { get; set; }
+        public string ClientId { get; set; }
     }
 }
