@@ -21,24 +21,39 @@ namespace VideoStore.ECommerce
 
         protected void Application_Start()
         {
-            Configure.ScaleOut(s => s.UseSingleBrokerQueue());
+            startableBus = Configure.With(o =>
+            {
+                //o.EndpointName(endpointName);
+                // o.EndpointVersion(() => endpointVersionToUse);
 
-            Feature.Disable<TimeoutManager>();
+                o.Conventions(c =>
+                    c.DefiningCommandsAs(
+                        t =>
+                            t.Namespace != null && t.Namespace.StartsWith("VideoStore") &&
+                            t.Namespace.EndsWith("Commands"))
+                        .DefiningEventsAs(
+                            t =>
+                                t.Namespace != null && t.Namespace.StartsWith("VideoStore") &&
+                                t.Namespace.EndsWith("Events"))
+                        .DefiningMessagesAs(
+                            t =>
+                                t.Namespace != null && t.Namespace.StartsWith("VideoStore") &&
+                                t.Namespace.EndsWith("RequestResponse"))
+                        .DefiningEncryptedPropertiesAs(p => p.Name.StartsWith("Encrypted")));
+            })
+               .UseTransport<AzureServiceBus>()
+               .PurgeOnStartup(true)
+               .ScaleOut(s => s.UseSingleBrokerQueue())
+               .RijndaelEncryptionService()
+               .EnableInstallers()
+               .CreateBus();
 
-            startableBus = Configure.With()
-                .DefaultBuilder()
-                .TraceLogger()
-                .UseTransport<AzureServiceBus>()
-                .PurgeOnStartup(true)
-                .UnicastBus()
-                .RunHandlersUnderIncomingPrincipal(false)
-                .RijndaelEncryptionService()
-                .CreateBus();
 
-            Configure.Instance.ForInstallationOn<Windows>().Install();
-            
+            //Configure.Instance.ForInstallationOn<Windows>().Install();
 
-            bus = startableBus.Start();
+            bus = startableBus
+                //  .RunInstallers()
+                .Start();
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

@@ -16,14 +16,8 @@
                 Debugger.Break();
             }
 
-            Trace.WriteLine(string.Format("Customer: {0} is now a preferred customer -- raising in-memory event, & publishing for other service concerns", message.ClientId));
-            // Call the domain object to do the raising of the event based on the relevant condition
-            Bus.InMemory.Raise<ClientBecamePreferred>(m =>
-            {
-                m.ClientId = message.ClientId;
-                m.PreferredStatusExpiresOn = DateTime.Now.AddMonths(2);
-            });
-
+            Trace.WriteLine(string.Format("Customer: {0} is now a preferred customer -- publishing for other service concerns", message.ClientId));
+        
             // Yes, you can also publish this event as an asynchronous event
             Bus.Publish<ClientBecamePreferred>(m =>
             {
