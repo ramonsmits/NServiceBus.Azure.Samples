@@ -1,0 +1,352 @@
+﻿2014-06-19 11:06:45.809 WARN  NServiceBus.Licensing.LicenseManager Trial for the Particular Service Platform has expired
+2014-06-19 11:06:45.945 INFO  NServiceBus.Configure Invocation of NServiceBus.INeedInitialization completed in 0.15 s
+2014-06-19 11:06:46.071 WARN  NServiceBus.Persistence.EnableSelectedPersistences No persistence has been selected, NServiceBus will now use InMemory persistence. We recommend that you change the persistence before deploying to production. To do this,  please add a call to config.UsePersistence<T>() where T can be any of the supported persistence options supported. http://docs.particular.net/nservicebus/persistence-in-nservicebus.
+2014-06-19 11:06:46.333 INFO  NServiceBus.Persistence.EnableSelectedPersistences Activating persistence InMemory to provide GatewayDeduplication,Timeouts,Sagas,Subscriptions,Outbox storage(s)
+2014-06-19 11:06:46.414 INFO  NServiceBus.Configure Invocation of NServiceBus.IWantToRunBeforeConfigurationIsFinalized completed in 0.38 s
+2014-06-19 11:06:46.750 INFO  NServiceBus.Features.UnicastBus Number of messages found: 10
+2014-06-19 11:06:48.639 INFO  NServiceBus.Installation.PerformanceMonitorUsersInstaller Did not attempt to add user 'NOMAD\yves_000' to group 'Performance Monitor Users' since process is not running with elevate privileges. Processing will continue. To manually perform this action run the following command from an admin console:
+net localgroup "Performance Monitor Users" "NOMAD\yves_000" /add
+2014-06-19 11:06:48.791 INFO  NServiceBus.Features.DisplayDiagnosticsForFeatures ------------- FEATURES ----------------
+Name: AzureServiceBusTransport
+Version: 5.4.0
+Enabled by Default: No
+Status: Enabled
+Dependencies: None
+Startup Tasks: None
+
+Name: InstallationSupport
+Version: 4.7.0
+Enabled by Default: Yes
+Status: Enabled
+Dependencies: None
+Startup Tasks: None
+
+Name: Audit
+Version: 4.7.0
+Enabled by Default: Yes
+Status: Enabled
+Dependencies: None
+Startup Tasks: None
+
+Name: AutoSubscribe
+Version: 4.7.0
+Enabled by Default: Yes
+Status: Enabled
+Dependencies: None
+Startup Tasks: ApplySubscriptions
+
+Name: MsmqSubscriptionPersistence
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: Outbox
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: InMemoryGatewayPersistence
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not meet one of the dependencies: [Gateway]
+
+Name: InMemoryOutboxPersistence
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not meet one of the dependencies: [Outbox]
+
+Name: InMemorySagaPersistence
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not meet one of the dependencies: [Sagas]
+
+Name: InMemorySubscriptionPersistence
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not meet one of the dependencies: [MessageDrivenSubscriptions]
+
+Name: InMemoryTimeoutPersistence
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not meet one of the dependencies: [TimeoutManager]
+
+Name: TimeoutManagerBasedDeferral
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: ForwardReceivedMessages
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: UnicastBus
+Version: 4.7.0
+Enabled by Default: Yes
+Status: Enabled
+Dependencies: None
+Startup Tasks: None
+
+Name: BinarySerialization
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: BsonSerialization
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: JsonSerialization
+Version: 4.7.0
+Enabled by Default: No
+Status: Enabled
+Dependencies: None
+Startup Tasks: None
+
+Name: XmlSerialization
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: MsmqTransport
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: Gateway
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: TimeoutManager
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: Sagas
+Version: 4.7.0
+Enabled by Default: Yes
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: SecondLevelRetries
+Version: 4.7.0
+Enabled by Default: Yes
+Status: Enabled
+Dependencies: None
+Startup Tasks: None
+
+Name: DataBus
+Version: 4.7.0
+Enabled by Default: Yes
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: StorageDrivenPublishing
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: MessageDrivenSubscriptions
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+
+2014-06-19 11:06:56.300 INFO  NServiceBus.Satellites.SatelliteLauncher Started 1/1 NServiceBus.SecondLevelRetries.SecondLevelRetriesProcessor, NServiceBus.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c satellite
+2014-06-19 11:07:19.878 ERROR NServiceBus.Licensing.LicenseBehavior Your license has expired
+2014-06-19 11:07:47.676 ERROR NServiceBus.Licensing.LicenseBehavior Your license has expired
+2014-06-19 12:58:48.905 WARN  NServiceBus.Licensing.LicenseManager Trial for the Particular Service Platform has expired
+2014-06-19 12:58:49.223 INFO  NServiceBus.Configure Invocation of NServiceBus.INeedInitialization completed in 0.34 s
+2014-06-19 12:58:49.360 WARN  NServiceBus.Persistence.EnableSelectedPersistences No persistence has been selected, NServiceBus will now use InMemory persistence. We recommend that you change the persistence before deploying to production. To do this,  please add a call to config.UsePersistence<T>() where T can be any of the supported persistence options supported. http://docs.particular.net/nservicebus/persistence-in-nservicebus.
+2014-06-19 12:58:49.468 INFO  NServiceBus.Persistence.EnableSelectedPersistences Activating persistence InMemory to provide GatewayDeduplication,Timeouts,Sagas,Subscriptions,Outbox storage(s)
+2014-06-19 12:58:49.691 INFO  NServiceBus.Configure Invocation of NServiceBus.IWantToRunBeforeConfigurationIsFinalized completed in 0.37 s
+2014-06-19 12:58:50.020 INFO  NServiceBus.Features.UnicastBus Number of messages found: 10
+2014-06-19 12:58:52.621 INFO  NServiceBus.Installation.PerformanceMonitorUsersInstaller Did not attempt to add user 'NOMAD\yves_000' to group 'Performance Monitor Users' since process is not running with elevate privileges. Processing will continue. To manually perform this action run the following command from an admin console:
+net localgroup "Performance Monitor Users" "NOMAD\yves_000" /add
+2014-06-19 12:58:53.403 INFO  NServiceBus.Features.DisplayDiagnosticsForFeatures ------------- FEATURES ----------------
+Name: AzureServiceBusTransport
+Version: 5.4.0
+Enabled by Default: No
+Status: Enabled
+Dependencies: None
+Startup Tasks: None
+
+Name: InstallationSupport
+Version: 4.7.0
+Enabled by Default: Yes
+Status: Enabled
+Dependencies: None
+Startup Tasks: None
+
+Name: Audit
+Version: 4.7.0
+Enabled by Default: Yes
+Status: Enabled
+Dependencies: None
+Startup Tasks: None
+
+Name: AutoSubscribe
+Version: 4.7.0
+Enabled by Default: Yes
+Status: Enabled
+Dependencies: None
+Startup Tasks: ApplySubscriptions
+
+Name: MsmqSubscriptionPersistence
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: Outbox
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: InMemoryGatewayPersistence
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not meet one of the dependencies: [Gateway]
+
+Name: InMemoryOutboxPersistence
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not meet one of the dependencies: [Outbox]
+
+Name: InMemorySagaPersistence
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not meet one of the dependencies: [Sagas]
+
+Name: InMemorySubscriptionPersistence
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not meet one of the dependencies: [MessageDrivenSubscriptions]
+
+Name: InMemoryTimeoutPersistence
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not meet one of the dependencies: [TimeoutManager]
+
+Name: TimeoutManagerBasedDeferral
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: ForwardReceivedMessages
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: UnicastBus
+Version: 4.7.0
+Enabled by Default: Yes
+Status: Enabled
+Dependencies: None
+Startup Tasks: None
+
+Name: BinarySerialization
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: BsonSerialization
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: JsonSerialization
+Version: 4.7.0
+Enabled by Default: No
+Status: Enabled
+Dependencies: None
+Startup Tasks: None
+
+Name: XmlSerialization
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: MsmqTransport
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: Gateway
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: TimeoutManager
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: Sagas
+Version: 4.7.0
+Enabled by Default: Yes
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: SecondLevelRetries
+Version: 4.7.0
+Enabled by Default: Yes
+Status: Enabled
+Dependencies: None
+Startup Tasks: None
+
+Name: DataBus
+Version: 4.7.0
+Enabled by Default: Yes
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: StorageDrivenPublishing
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+Name: MessageDrivenSubscriptions
+Version: 4.7.0
+Enabled by Default: No
+Status: Disabled
+Deactivation reason: Did not fulfill one of the Prerequisites
+
+
+2014-06-19 12:58:58.910 INFO  NServiceBus.Satellites.SatelliteLauncher Started 1/1 NServiceBus.SecondLevelRetries.SecondLevelRetriesProcessor, NServiceBus.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c satellite
+2014-06-19 12:59:27.635 ERROR NServiceBus.Licensing.LicenseBehavior Your license has expired
+2014-06-19 12:59:54.595 ERROR NServiceBus.Licensing.LicenseBehavior Your license has expired
