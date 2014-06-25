@@ -1,25 +1,33 @@
 ﻿using NServiceBus.Features;
+using NServiceBus.Hosting.Helpers;
+using NServiceBus.Log4Net;
 using NServiceBus.Logging;
 
 namespace VideoStore.CustomerRelations
 {
     using NServiceBus;
 
-    public class EndpointConfig : IConfigureThisEndpoint, AsA_Worker, UsingTransport<AzureStorageQueue>,
-        IWantCustomInitialization
+    public class EndpointConfig : IConfigureThisEndpoint, AsA_Worker, UsingTransport<AzureStorageQueue>
     {
-        public void Init()
+        public void Customize(ConfigurationBuilder builder)
         {
-            SetLoggingLibrary.Log4Net(() => log4net.Config.XmlConfigurator.Configure());
-        }
-    }
+            Log4NetConfigurator.Configure();
 
-    public class DefineEndpointName : INeedInitialization
-    {
-        public void Init()
-        {
-            Configure.Instance
-                .DefineEndpointName(() => "VideoStore.CustomerRelations");
+            builder.Conventions(c =>
+                     c.DefiningCommandsAs(
+                         t =>
+                             t.Namespace != null && t.Namespace.StartsWith("VideoStore") &&
+                             t.Namespace.EndsWith("Commands"))
+                         .DefiningEventsAs(
+                             t =>
+                                 t.Namespace != null && t.Namespace.StartsWith("VideoStore") &&
+                                 t.Namespace.EndsWith("Events"))
+                         .DefiningMessagesAs(
+                             t =>
+                                 t.Namespace != null && t.Namespace.StartsWith("VideoStore") &&
+                                 t.Namespace.EndsWith("RequestResponse"))
+                         .DefiningEncryptedPropertiesAs(p => p.Name.StartsWith("Encrypted")));
+
         }
     }
 
@@ -39,12 +47,15 @@ namespace VideoStore.CustomerRelations
     }
 
     // We don't need it, so instead of configuring it, we disable it
-    public class DisableTimeoutManager : INeedInitialization
+    public class DisableFeatures : INeedInitialization
     {
-        public void Init()
+        public void Init(Configure config)
         {
-            Feature.Disable<SecondLevelRetries>();
-            Feature.Disable<TimeoutManager>();
+            config.Features(f =>
+            {
+                f.Disable<SecondLevelRetries>();
+                f.Disable<TimeoutManager>();
+            });
         }
     }
 }

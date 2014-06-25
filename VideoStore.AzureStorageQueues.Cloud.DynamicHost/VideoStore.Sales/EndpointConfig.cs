@@ -1,29 +1,39 @@
-using System.Diagnostics;
+using NServiceBus.Log4Net;
 using NServiceBus.Logging;
 
 namespace VideoStore.Sales
 {
-    using System;
     using NServiceBus;
 
-    public class EndpointConfig : IConfigureThisEndpoint, AsA_Worker, UsingTransport<AzureStorageQueue>, IWantCustomInitialization
+    public class EndpointConfig : IConfigureThisEndpoint, AsA_Worker, UsingTransport<AzureStorageQueue>
     {
-        public void Init()
+        public void Customize(ConfigurationBuilder builder)
         {
-            SetLoggingLibrary.Log4Net(() => log4net.Config.XmlConfigurator.Configure());
+            Log4NetConfigurator.Configure();
 
-            Configure.With()
-                .DefaultBuilder()
-                .RijndaelEncryptionService();
+           builder.Conventions(c =>
+                    c.DefiningCommandsAs(
+                        t =>
+                            t.Namespace != null && t.Namespace.StartsWith("VideoStore") &&
+                            t.Namespace.EndsWith("Commands"))
+                        .DefiningEventsAs(
+                            t =>
+                                t.Namespace != null && t.Namespace.StartsWith("VideoStore") &&
+                                t.Namespace.EndsWith("Events"))
+                        .DefiningMessagesAs(
+                            t =>
+                                t.Namespace != null && t.Namespace.StartsWith("VideoStore") &&
+                                t.Namespace.EndsWith("RequestResponse"))
+                        .DefiningEncryptedPropertiesAs(p => p.Name.StartsWith("Encrypted")));
+            
         }
     }
 
-    public class DefineEndpointName : INeedInitialization
+    public class ConfigureEncryption : INeedInitialization
     {
-        public void Init()
+        public void Init(Configure config)
         {
-            Configure.Instance
-                .DefineEndpointName(() => "VideoStore.Sales");
+            config.RijndaelEncryptionService();
         }
     }
 

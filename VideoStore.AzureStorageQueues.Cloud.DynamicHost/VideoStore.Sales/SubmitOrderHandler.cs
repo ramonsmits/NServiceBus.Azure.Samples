@@ -30,12 +30,12 @@ namespace VideoStore.Sales
             Log.DebugFormat("CreditCard Expiration Date is {0}", message.EncryptedExpirationDate);
 
             //tell the client that we received the order
-            Bus.Publish(Bus.CreateInstance<OrderPlaced>(o =>
+            Bus.Publish(new OrderPlaced
                 {
-                    o.ClientId = message.ClientId;
-                    o.OrderNumber = message.OrderNumber;
-                    o.VideoIds = message.VideoIds;
-                }));
+                    ClientId = message.ClientId,
+                    OrderNumber = message.OrderNumber,
+                    VideoIds = message.VideoIds
+                });
         }
     }
 }

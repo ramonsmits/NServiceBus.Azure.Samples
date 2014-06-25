@@ -3,14 +3,14 @@
   <Role name="VideoStore.ECommerce">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=nservicebussamples;AccountKey=31x79LoATpdKqnQoXl2JpHknecNDNh3LX3sWXLvC2KDPwoIwuQJohSVFIA4wWEuYQ4XOJwOxEC50W7bU+e2VgA==" />
     </ConfigurationSettings>
   </Role>
   <Role name="VideoStore.Host">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
-      <Setting name="DynamicHostControllerConfig.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=nservicebussamples;AccountKey=31x79LoATpdKqnQoXl2JpHknecNDNh3LX3sWXLvC2KDPwoIwuQJohSVFIA4wWEuYQ4XOJwOxEC50W7bU+e2VgA==" />
+      <Setting name="DynamicHostControllerConfig.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=nservicebussamples;AccountKey=31x79LoATpdKqnQoXl2JpHknecNDNh3LX3sWXLvC2KDPwoIwuQJohSVFIA4wWEuYQ4XOJwOxEC50W7bU+e2VgA==" />
       <Setting name="DynamicHostControllerConfig.AutoUpdate" value="true" />
       <Setting name="DynamicHostControllerConfig.UpdateInterval" value="5000" />
       <Setting name="DynamicHostControllerConfig.Container" value="endpoints" />

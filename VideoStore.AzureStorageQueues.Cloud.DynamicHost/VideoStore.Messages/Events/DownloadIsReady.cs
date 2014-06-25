@@ -2,10 +2,10 @@
 {
     using System.Collections.Generic;
 
-    public interface DownloadIsReady 
+    public class DownloadIsReady 
     {
-        int OrderNumber { get; set; }
-        Dictionary<string,string> VideoUrls { get; set; }
-        string ClientId { get; set; }
+        public int OrderNumber { get; set; }
+        public Dictionary<string, string> VideoUrls { get; set; }
+        public string ClientId { get; set; }
     }
 }

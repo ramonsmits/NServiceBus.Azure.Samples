@@ -1,8 +1,8 @@
 ﻿namespace VideoStore.Messages.Events
 {
-    public interface OrderCancelled 
+    public class OrderCancelled 
     {
-        int OrderNumber { get; set; }
-        string ClientId { get; set; }
+        public int OrderNumber { get; set; }
+        public string ClientId { get; set; }
     }
 }

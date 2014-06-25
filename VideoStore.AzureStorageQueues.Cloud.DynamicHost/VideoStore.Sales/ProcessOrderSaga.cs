@@ -61,22 +61,23 @@ namespace VideoStore.Sales
 
             MarkAsComplete();
 
-            Bus.Publish(Bus.CreateInstance<OrderCancelled>(o =>
+            Bus.Publish(new OrderCancelled
                 {
-                    o.OrderNumber = message.OrderNumber;
-                    o.ClientId = message.ClientId;
-                }));
+                    OrderNumber = message.OrderNumber,
+                    ClientId = message.ClientId
+                });
 
             Log.DebugFormat("Order #{0} was cancelled.", message.OrderNumber);
         }
 
-        public override void ConfigureHowToFindSaga()
+        protected override void ConfigureHowToFindSaga(SagaPropertyMapper<OrderData> mapper)
         {
-            ConfigureMapping<SubmitOrder>(m => m.OrderNumber)
-                .ToSaga(s=>s.OrderNumber);
-            ConfigureMapping<CancelOrder>(m => m.OrderNumber)
-                .ToSaga(s=>s.OrderNumber);
+            mapper.ConfigureMapping<SubmitOrder>(m => m.OrderNumber)
+                .ToSaga(s => s.OrderNumber);
+            mapper.ConfigureMapping<CancelOrder>(m => m.OrderNumber)
+                .ToSaga(s => s.OrderNumber);
         }
+
 
         // Note: azure table storage is not a relational database and is limited in it's support for complex saga data structures
         // If you need more complexity, you may want to swap it out for sql server (against sql azure)
@@ -95,6 +96,8 @@ namespace VideoStore.Sales
         public class BuyersRemorseIsOver
         {
         }
+
+     
     }
 
     
