@@ -1,7 +1,6 @@
 using System.Diagnostics;
 using NServiceBus.Features;
 using NServiceBus.Hosting.Helpers;
-using NServiceBus.Log4Net;
 using NServiceBus.Logging;
 using NServiceBus.Unicast;
 
@@ -13,8 +12,6 @@ namespace VideoStore.ContentManagement
     {
         public void Customize(ConfigurationBuilder builder)
         {
-         //   Log4NetConfigurator.Configure();
-
             builder.Conventions(c =>
                      c.DefiningCommandsAs(
                          t =>
@@ -53,11 +50,8 @@ namespace VideoStore.ContentManagement
     {
         public void Init(Configure config)
         {
-            config.Features(f =>
-            {
-                f.Disable<SecondLevelRetries>();
-                f.Disable<TimeoutManager>();
-            });
+            config.DisableFeature<SecondLevelRetries>();
+            config.DisableFeature<TimeoutManager>();
         }
     }
 }

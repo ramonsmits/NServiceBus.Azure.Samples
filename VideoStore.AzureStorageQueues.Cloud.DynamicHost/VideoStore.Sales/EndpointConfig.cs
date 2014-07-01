@@ -1,4 +1,3 @@
-using NServiceBus.Log4Net;
 using NServiceBus.Logging;
 
 namespace VideoStore.Sales
@@ -9,8 +8,6 @@ namespace VideoStore.Sales
     {
         public void Customize(ConfigurationBuilder builder)
         {
-            Log4NetConfigurator.Configure();
-
            builder.Conventions(c =>
                     c.DefiningCommandsAs(
                         t =>
