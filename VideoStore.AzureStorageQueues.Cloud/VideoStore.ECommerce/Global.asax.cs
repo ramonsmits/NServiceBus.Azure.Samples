@@ -22,19 +22,19 @@ namespace VideoStore.ECommerce
 
         protected void Application_Start()
         {
-            Feature.Disable<TimeoutManager>();
-
-            startableBus = Configure.With()
-                .DefaultBuilder()
+            startableBus = Configure.With(o =>
+                        o.Conventions(c =>
+                            c.DefiningCommandsAs(t => t.Namespace != null && t.Namespace.StartsWith("VideoStore") && t.Namespace.EndsWith("Commands"))
+                                .DefiningEventsAs(t => t.Namespace != null && t.Namespace.StartsWith("VideoStore") && t.Namespace.EndsWith("Events"))
+                                .DefiningMessagesAs(t => t.Namespace != null && t.Namespace.StartsWith("VideoStore") && t.Namespace.EndsWith("RequestResponse"))
+                                .DefiningEncryptedPropertiesAs(p => p.Name.StartsWith("Encrypted"))))
                 .TraceLogger()
                 .UseTransport<AzureStorageQueue>()
+                .AzureSubscriptionStorage()
                 .PurgeOnStartup(true)
-                .UnicastBus()
-                .RunHandlersUnderIncomingPrincipal(false)
                 .RijndaelEncryptionService()
+                .EnableInstallers()
                 .CreateBus();
-
-            Configure.Instance.ForInstallationOn<Windows>().Install();
 
             bus = startableBus.Start();
 

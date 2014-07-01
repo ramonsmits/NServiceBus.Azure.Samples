@@ -1,0 +1,2 @@
+﻿2014-07-01 10:33:07.213 INFO  NServiceBus.Configure Invocation of NServiceBus.INeedInitialization completed in 0.05 s
+2014-07-01 10:33:07.396 INFO  NServiceBus.Configure Invocation of NServiceBus.IWantToRunBeforeConfigurationIsFinalized completed in 0.14 s

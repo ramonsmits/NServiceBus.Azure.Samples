@@ -1,4 +1,6 @@
-﻿namespace VideoStore.Common
+﻿using NServiceBus.Unicast.Messages;
+
+namespace VideoStore.Common
 {
     using System;
     using System.Threading;
@@ -22,14 +24,14 @@
             }
         }
 
-        public void MutateOutgoing(object[] messages, TransportMessage transportMessage)
+        public void MutateOutgoing(LogicalMessage message, TransportMessage transportMessage)
         {
             transportMessage.Headers["Debug"] = Debug.ToString();
         }
 
-        public void Init()
+        public void Init(Configure config)
         {
-            Configure.Instance.Configurer.ConfigureComponent<DebugFlagMutator>(DependencyLifecycle.InstancePerCall);
+            config.Configurer.ConfigureComponent<DebugFlagMutator>(DependencyLifecycle.InstancePerCall);
         }
 
         static readonly ThreadLocal<bool> debug = new ThreadLocal<bool>();
