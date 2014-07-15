@@ -1,0 +1,25 @@
+﻿2014-07-15 10:39:28.972 INFO  NServiceBus.Configure Invocation of NServiceBus.INeedInitialization completed in 0.03 s
+2014-07-15 10:39:29.098 INFO  NServiceBus.Configure Invocation of NServiceBus.IWantToRunBeforeConfigurationIsFinalized completed in 0.09 s
+2014-07-15 10:41:50.160 INFO  NServiceBus.Configure Invocation of NServiceBus.INeedInitialization completed in 0.02 s
+2014-07-15 10:42:05.882 WARN  NServiceBus.Configure Invocation of NServiceBus.IWantToRunBeforeConfigurationIsFinalized completed in 15.70 s - Details:
+NServiceBus.Persistence.EnableSelectedPersistences - 15.6609 s
+NServiceBus.LoadMessageHandlersExtentions+LoadHandlersByDefault - 0.0286 s
+NServiceBus.Transports.EnableSelectedTransport - 0.0063 s
+NServiceBus.Serialization.EnableSelectedSerializer - 0.0038 s
+NServiceBus.Hosting.Profiles.ProfileActivator - 0.0009 s
+NServiceBus.Impersonation.Windows.ConfigureWindowsIdentityEnricher - 0.0005 s
+NServiceBus.Unicast.Monitoring.PerformanceCounterInitializer - 0.0004 s
+NServiceBus.Distributor.Config.DefaultMasterNodeAddress - 0.0004 s
+
+2014-07-15 10:51:48.413 INFO  NServiceBus.Configure Invocation of NServiceBus.INeedInitialization completed in 0.03 s
+2014-07-15 10:51:52.693 INFO  NServiceBus.Configure Invocation of NServiceBus.IWantToRunBeforeConfigurationIsFinalized completed in 4.27 s
+2014-07-15 10:52:21.875 INFO  NServiceBus.Configure Invocation of NServiceBus.INeedInitialization completed in 0.09 s
+2014-07-15 10:52:22.142 INFO  NServiceBus.Configure Invocation of NServiceBus.IWantToRunBeforeConfigurationIsFinalized completed in 0.23 s
+2014-07-15 10:54:11.034 INFO  NServiceBus.Configure Invocation of NServiceBus.INeedInitialization completed in 0.08 s
+2014-07-15 10:54:11.426 INFO  NServiceBus.Configure Invocation of NServiceBus.IWantToRunBeforeConfigurationIsFinalized completed in 0.20 s
+2014-07-15 14:05:29.015 INFO  NServiceBus.Configure Invocation of NServiceBus.INeedInitialization completed in 0.05 s
+2014-07-15 14:05:29.151 INFO  NServiceBus.Configure Invocation of NServiceBus.IWantToRunBeforeConfigurationIsFinalized completed in 0.10 s
+2014-07-15 14:15:56.455 INFO  NServiceBus.Configure Invocation of NServiceBus.INeedInitialization completed in 0.05 s
+2014-07-15 14:15:56.620 INFO  NServiceBus.Configure Invocation of NServiceBus.IWantToRunBeforeConfigurationIsFinalized completed in 0.12 s
+2014-07-15 14:18:01.449 INFO  NServiceBus.Configure Invocation of NServiceBus.INeedInitialization completed in 0.09 s
+2014-07-15 14:18:01.805 INFO  NServiceBus.Configure Invocation of NServiceBus.IWantToRunBeforeConfigurationIsFinalized completed in 0.31 s

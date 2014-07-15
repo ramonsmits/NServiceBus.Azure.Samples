@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VideoStore</RootNamespace>
     <AssemblyName>VideoStore</AssemblyName>
-    <StartDevelopmentStorage>True</StartDevelopmentStorage>
+    <StartDevelopmentStorage>False</StartDevelopmentStorage>
     <Name>VideoStore</Name>
     <UseWebProjectPorts>True</UseWebProjectPorts>
     <UseEmulatorExpressByDefault>False</UseEmulatorExpressByDefault>

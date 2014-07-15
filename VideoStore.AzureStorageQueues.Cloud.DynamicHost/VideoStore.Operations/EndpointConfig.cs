@@ -8,7 +8,7 @@ namespace VideoStore.Operations
     using System;
     using NServiceBus;
 
-    public class EndpointConfig : IConfigureThisEndpoint, AsA_Worker, UsingTransport<AzureStorageQueue>
+    public class EndpointConfig : IConfigureThisEndpoint, AsA_Worker, UsingTransport<AzureStorageQueue>, UsingPersistence<AzureStorage>
     {
         public void Customize(ConfigurationBuilder builder)
         {
@@ -52,6 +52,7 @@ namespace VideoStore.Operations
     {
         public void Init(Configure config)
         {
+            config.DisableFeature<Sagas>();
             config.DisableFeature<SecondLevelRetries>();
             config.DisableFeature<TimeoutManager>();
         }

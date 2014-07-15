@@ -13,11 +13,15 @@
     </Endpoints>
     <Imports>
       <Import moduleName="Diagnostics" />
+      <Import moduleName="RemoteAccess" />
     </Imports>
   </WebRole>
-  <WorkerRole name="VideoStore.Host" vmsize="Small">
+  <WorkerRole name="VideoStore.Host" vmsize="Small" enableNativeCodeExecution="true">
+    <Runtime executionContext="elevated" />
     <Imports>
       <Import moduleName="Diagnostics" />
+      <Import moduleName="RemoteAccess" />
+      <Import moduleName="RemoteForwarder" />
     </Imports>
     <ConfigurationSettings>
       <Setting name="DynamicHostControllerConfig.ConnectionString" />
