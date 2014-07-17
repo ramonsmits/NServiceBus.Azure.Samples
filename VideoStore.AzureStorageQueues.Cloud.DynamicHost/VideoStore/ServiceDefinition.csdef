@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ServiceDefinition name="VideoStore" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2014-01.2.3">
   <WebRole name="VideoStore.ECommerce" vmsize="Small">
+    <Runtime executionContext="elevated" />
     <Sites>
       <Site name="Web">
         <Bindings>
@@ -9,7 +10,7 @@
       </Site>
     </Sites>
     <Endpoints>
-      <InputEndpoint name="Endpoint1" protocol="http" port="80" />
+      <InputEndpoint name="Endpoint1" protocol="http" port="80"  />
     </Endpoints>
     <Imports>
       <Import moduleName="Diagnostics" />

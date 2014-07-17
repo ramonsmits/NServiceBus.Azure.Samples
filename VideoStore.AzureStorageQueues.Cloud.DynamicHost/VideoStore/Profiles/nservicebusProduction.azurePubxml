@@ -18,5 +18,7 @@
     <AzureStorageAccountLabel>goeleven</AzureStorageAccountLabel>
     <AzureStorageAccountName>goeleven</AzureStorageAccountName>
     <AzureAppendTimestampToDeploymentLabel>True</AzureAppendTimestampToDeploymentLabel>
+    <EnableRemoteDebugger>True</EnableRemoteDebugger>
+    <RemoteDebuggerConnectorCertificateThumbprint>01F5E1B0185EF1E736701CE39D86375DE00BA1AB</RemoteDebuggerConnectorCertificateThumbprint>
   </PropertyGroup>
 </Project>
