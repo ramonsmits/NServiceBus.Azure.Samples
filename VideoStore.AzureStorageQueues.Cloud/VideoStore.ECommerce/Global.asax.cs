@@ -1,13 +1,10 @@
-using System.Threading;
-using NServiceBus.Features;
-
 namespace VideoStore.ECommerce
 {
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Routing;
     using NServiceBus;
-    using NServiceBus.Installation.Environments;
+    using NServiceBus.Persistence;
 
     public class MvcApplication : HttpApplication
     {
@@ -30,7 +27,7 @@ namespace VideoStore.ECommerce
                                 .DefiningEncryptedPropertiesAs(p => p.Name.StartsWith("Encrypted"))))
                 .TraceLogger()
                 .UseTransport<AzureStorageQueue>()
-                .AzureSubscriptionStorage()
+                .UsePersistence<AzureStorage>()
                 .PurgeOnStartup(true)
                 .RijndaelEncryptionService()
                 .EnableInstallers()

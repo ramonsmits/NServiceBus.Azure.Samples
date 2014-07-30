@@ -1,4 +1,5 @@
 using NServiceBus.Features;
+using NServiceBus.Persistence;
 
 namespace VideoStore.ECommerce
 {
@@ -42,6 +43,7 @@ namespace VideoStore.ECommerce
                         .DefiningEncryptedPropertiesAs(p => p.Name.StartsWith("Encrypted")));
             })
                .UseTransport<AzureServiceBus>()
+               .UsePersistence<AzureStorage>()
                .PurgeOnStartup(true)
                .ScaleOut(s => s.UseSingleBrokerQueue())
                .RijndaelEncryptionService()

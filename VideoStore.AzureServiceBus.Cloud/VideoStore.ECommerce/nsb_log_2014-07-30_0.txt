@@ -831,3 +831,6 @@ Deactivation reason: Did not meet one of the dependencies:
 
 
 2014-07-30 11:33:17.162 INFO  NServiceBus.Satellites.SatelliteLauncher Started 1/1 NServiceBus.SecondLevelRetries.SecondLevelRetriesProcessor, NServiceBus.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c satellite
+2014-07-30 14:58:04.947 INFO  NServiceBus.Unicast.UnicastBus Initiating shutdown.
+2014-07-30 14:58:05.084 INFO  NServiceBus.Satellites.SatelliteLauncher Stopped 1/1 NServiceBus.SecondLevelRetries.SecondLevelRetriesProcessor, NServiceBus.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c satellite
+2014-07-30 14:58:05.193 INFO  NServiceBus.Unicast.UnicastBus Shutdown complete.
