@@ -8,7 +8,7 @@ namespace VideoStore.ContentManagement
 {
     using NServiceBus;
 
-    public class EndpointConfig : IConfigureThisEndpoint, AsA_Worker, UsingTransport<AzureServiceBus>
+    public class EndpointConfig : IConfigureThisEndpoint, AsA_Worker, UsingTransport<AzureServiceBus>, UsingPersistence<AzureStorage>
     {
         public void Customize(ConfigurationBuilder builder)
         {
@@ -60,11 +60,9 @@ namespace VideoStore.ContentManagement
     {
         public void Init(Configure config)
         {
-            config.Features(f =>
-            {
-                f.Disable<TimeoutManager>();
-                f.Disable<SecondLevelRetries>();
-            });
+            config.DisableFeature<TimeoutManager>();
+            config.DisableFeature<SecondLevelRetries>();
+            config.DisableFeature<Sagas>();
             
         }
     }

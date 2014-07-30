@@ -4,7 +4,7 @@ namespace VideoStore.Sales
 {
     using NServiceBus;
 
-    public class EndpointConfig : IConfigureThisEndpoint, AsA_Worker, UsingTransport<AzureServiceBus>
+    public class EndpointConfig : IConfigureThisEndpoint, AsA_Worker, UsingTransport<AzureServiceBus>, UsingPersistence<AzureStorage>
     {
         public void Customize(ConfigurationBuilder builder)
         {
