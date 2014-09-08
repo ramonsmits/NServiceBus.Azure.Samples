@@ -22,40 +22,23 @@ namespace VideoStore.ECommerce
 
         protected void Application_Start()
         {
-            startableBus = Configure.With(o =>
-            {
-                //o.EndpointName(endpointName);
-                // o.EndpointVersion(() => endpointVersionToUse);
+            var config = new BusConfiguration();
 
-                o.Conventions(c =>
-                    c.DefiningCommandsAs(
-                        t =>
-                            t.Namespace != null && t.Namespace.StartsWith("VideoStore") &&
-                            t.Namespace.EndsWith("Commands"))
-                        .DefiningEventsAs(
-                            t =>
-                                t.Namespace != null && t.Namespace.StartsWith("VideoStore") &&
-                                t.Namespace.EndsWith("Events"))
-                        .DefiningMessagesAs(
-                            t =>
-                                t.Namespace != null && t.Namespace.StartsWith("VideoStore") &&
-                                t.Namespace.EndsWith("RequestResponse"))
-                        .DefiningEncryptedPropertiesAs(p => p.Name.StartsWith("Encrypted")));
-            })
-               .UseTransport<AzureServiceBus>()
-               .UsePersistence<AzureStorage>()
-               .PurgeOnStartup(true)
-               .ScaleOut(s => s.UseSingleBrokerQueue())
-               .RijndaelEncryptionService()
-               .EnableInstallers()
-               .CreateBus();
+            config.Conventions()
+                    .DefiningCommandsAs(t => t.Namespace != null && t.Namespace.StartsWith("VideoStore") && t.Namespace.EndsWith("Commands"))
+                    .DefiningEventsAs(t => t.Namespace != null && t.Namespace.StartsWith("VideoStore") && t.Namespace.EndsWith("Events"))
+                    .DefiningMessagesAs(t => t.Namespace != null && t.Namespace.StartsWith("VideoStore") && t.Namespace.EndsWith("RequestResponse"))
+                    .DefiningEncryptedPropertiesAs(p => p.Name.StartsWith("Encrypted"));
+            config.TraceLogger();
+            config.UseTransport<AzureServiceBus>();
+            config.UsePersistence<AzureStorage>();
+            config.PurgeOnStartup(true);
+            config.RijndaelEncryptionService();
+            config.EnableInstallers();
 
 
-            //Configure.Instance.ForInstallationOn<Windows>().Install();
-
-            bus = startableBus
-                //  .RunInstallers()
-                .Start();
+            startableBus = NServiceBus.Bus.Create(config);
+            bus = startableBus.Start();
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
