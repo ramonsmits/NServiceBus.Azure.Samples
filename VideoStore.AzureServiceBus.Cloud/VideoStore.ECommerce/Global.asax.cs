@@ -30,8 +30,8 @@ namespace VideoStore.ECommerce
                     .DefiningMessagesAs(t => t.Namespace != null && t.Namespace.StartsWith("VideoStore") && t.Namespace.EndsWith("RequestResponse"))
                     .DefiningEncryptedPropertiesAs(p => p.Name.StartsWith("Encrypted"));
             config.TraceLogger();
-            config.UseTransport<AzureServiceBus>();
-            config.UsePersistence<AzureStorage>();
+            config.UseTransport<AzureServiceBusTransport>();
+            config.UsePersistence<AzureStoragePersistence>();
             config.PurgeOnStartup(true);
             config.RijndaelEncryptionService();
             config.EnableInstallers();
