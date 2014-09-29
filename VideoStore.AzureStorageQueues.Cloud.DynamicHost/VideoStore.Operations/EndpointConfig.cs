@@ -12,8 +12,8 @@ namespace VideoStore.Operations
     {
         public void Customize(BusConfiguration builder)
         {
-            builder.UseTransport<AzureStorageQueue>();
-            builder.UsePersistence<AzureStorage>();
+            builder.UseTransport<AzureStorageQueueTransport>();
+            builder.UsePersistence<AzureStoragePersistence>();
 
             builder.Conventions()
                 .DefiningCommandsAs(t => t.Namespace != null && t.Namespace.StartsWith("VideoStore") && t.Namespace.EndsWith("Commands"))
