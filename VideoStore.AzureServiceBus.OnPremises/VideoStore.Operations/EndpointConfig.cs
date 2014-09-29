@@ -9,7 +9,7 @@ namespace VideoStore.Operations
     {
         public void Customize(BusConfiguration builder)
         {
-            builder.UseTransport<AzureServiceBus>();
+            builder.UseTransport<AzureServiceBusTransport>();
             builder.UsePersistence<InMemoryPersistence>();
 
             builder.Conventions()
