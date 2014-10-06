@@ -1,9 +1,9 @@
 properties {
     $binariesDirs = "VideoStore.ContentManagement, VideoStore.CustomerRelations, VideoStore.Operations, VideoStore.Sales"
 	$buildConfiguration = "Debug"
-	$UseEmulator = $true
-	$StorageAccount = "youraccount"
-	$StorageKey = "yourkey"
+	$UseEmulator = $false
+	$StorageAccount = "nservicebussamples"
+	$StorageKey = "31x79LoATpdKqnQoXl2JpHknecNDNh3LX3sWXLvC2KDPwoIwuQJohSVFIA4wWEuYQ4XOJwOxEC50W7bU+e2VgA=="
 }
 
 $baseDir = Split-Path (Resolve-Path $MyInvocation.MyCommand.Path)
