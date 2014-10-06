@@ -3,31 +3,31 @@
   <Role name="VideoStore.ECommerce">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=nservicebussamples;AccountKey=31x79LoATpdKqnQoXl2JpHknecNDNh3LX3sWXLvC2KDPwoIwuQJohSVFIA4wWEuYQ4XOJwOxEC50W7bU+e2VgA==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
     </ConfigurationSettings>
   </Role>
   <Role name="VideoStore.Sales">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=nservicebussamples;AccountKey=31x79LoATpdKqnQoXl2JpHknecNDNh3LX3sWXLvC2KDPwoIwuQJohSVFIA4wWEuYQ4XOJwOxEC50W7bU+e2VgA==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
     </ConfigurationSettings>
   </Role>
   <Role name="VideoStore.ContentManagement">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=nservicebussamples;AccountKey=31x79LoATpdKqnQoXl2JpHknecNDNh3LX3sWXLvC2KDPwoIwuQJohSVFIA4wWEuYQ4XOJwOxEC50W7bU+e2VgA==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
     </ConfigurationSettings>
   </Role>
   <Role name="VideoStore.CustomerRelations">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=nservicebussamples;AccountKey=31x79LoATpdKqnQoXl2JpHknecNDNh3LX3sWXLvC2KDPwoIwuQJohSVFIA4wWEuYQ4XOJwOxEC50W7bU+e2VgA==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
     </ConfigurationSettings>
   </Role>
   <Role name="VideoStore.Operations">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=nservicebussamples;AccountKey=31x79LoATpdKqnQoXl2JpHknecNDNh3LX3sWXLvC2KDPwoIwuQJohSVFIA4wWEuYQ4XOJwOxEC50W7bU+e2VgA==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
     </ConfigurationSettings>
   </Role>
 </ServiceConfiguration>
